@@ -25,6 +25,22 @@ def auth_page():
     st.title("🏛️ HỌC VIỆN KONG-KONG")
     st.subheader("Thông Tin Thị Trường")
     
+    # === Nút Khách ở trên cùng ===
+    st.info("👋 Chào mừng! Bạn có thể đăng nhập hoặc khám phá với tư cách khách.")
+    
+    if st.button("🔓 Khám phá với tư cách Khách", use_container_width=True, type="secondary", key="btn_guest"):
+        st.session_state.logged_in = True
+        st.session_state.user_email = "guest@kongkong.local"
+        st.session_state.user_info = {
+            "fullname": "Khách",
+            "phone": "",
+            "created_at": "",
+            "is_guest": True
+        }
+        st.rerun()
+    
+    st.divider()
+    
     tab_login, tab_register = st.tabs(["🔐 Đăng Nhập", "📝 Đăng Ký"])
     
     with tab_login:
@@ -65,7 +81,6 @@ def auth_page():
                     st.success(f"✅ {msg}")
                 else:
                     st.error(f"❌ {msg}")
-
 # ---------------- Giao diện chính sau đăng nhập ----------------
 def main_app():
     user = st.session_state.user_info
