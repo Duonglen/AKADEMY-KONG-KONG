@@ -51,8 +51,8 @@ def auth_page():
         fullname = st.text_input("👤 Họ và tên")
         email = st.text_input("📧 Email")
         phone = st.text_input("📱 Số điện thoại")
-        reg_password = st.text_input("🔒 Mật khẩu", type="password")
-        confirm_pass = st.text_input("🔒 Nhập lại mật khẩu", type="password")
+        reg_password = st.text_input("🔒 Tạo mật khẩu", type="password")
+confirm_pass = st.text_input("🔒 Xác nhận mật khẩu", type="password")
         
         if st.button("Đăng Ký", use_container_width=True):
             if not fullname or not email or not phone or not reg_password:
