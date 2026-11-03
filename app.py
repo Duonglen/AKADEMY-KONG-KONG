@@ -88,9 +88,13 @@ def main_app():
     st.subheader("Thông Tin Thị Trường")
     
     # Thông tin người dùng & nút đăng xuất
-    col1, col2, col3 = st.columns([3, 1, 1])
+        col1, col2, col3 = st.columns([3, 1, 1])
     with col1:
-        st.info(f"👋 Xin chào, **{user['fullname']}** | 📧 {st.session_state.user_email}")
+        if st.session_state.user_info.get("is_guest"):
+            st.info("👋 Xin chào, **Khách** — Trải nghiệm xem dữ liệu thị trường!")
+            st.caption("💡 Để lưu dữ liệu và sử dụng đầy đủ tính năng, vui lòng tạo tài khoản nhé!")
+        else:
+            st.info(f"👋 Xin chào, **{user['fullname']}** | 📧 {st.session_state.user_email}")
     with col3:
         if st.button("🚪 Đăng Xuất", use_container_width=True):
             logout()
