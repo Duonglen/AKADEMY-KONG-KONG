@@ -86,9 +86,7 @@ def main_app():
     user = st.session_state.user_info
     st.title("🏛️ Akademy Kong Kong")
     st.subheader("Thông Tin Thị Trường")
-    
-    # Thông tin người dùng & nút đăng xuất
-        col1, col2, col3 = st.columns([3, 1, 1])
+    col1, col2, col3 = st.columns([3, 1, 1])
     with col1:
         if st.session_state.user_info.get("is_guest"):
             st.info("👋 Xin chào, **Khách** — Trải nghiệm xem dữ liệu thị trường!")
