@@ -30,7 +30,7 @@ def auth_page():
     with tab_login:
         st.subheader("Đăng nhập tài khoản")
         login_input = st.text_input("📧 Email hoặc Số điện thoại")
-        password = st.text_input("🔒 Mật khẩu", type="password")
+        password = st.text_input("🔒 Mật khẩu đăng nhập", type="password")
         
         if st.button("Đăng Nhập", use_container_width=True):
             if not login_input or not password:
